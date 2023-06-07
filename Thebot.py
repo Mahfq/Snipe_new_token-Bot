@@ -1,7 +1,9 @@
 from web3 import Web3
 import json
 
-web3 = Web3(Web3.HTTPProvider("https://multi-lingering-market.discover.quiknode.pro/6a24bda830f37393df46ac097bd64a1702085b51/"))
+# add your blockchain connection information
+Provider_url = 'ADDYOURINFURAURL'
+web3 = Web3(Web3.HTTPProvider(Provider_url))
 
 if web3.is_connected():
     print("Connecté à Ethereum")
