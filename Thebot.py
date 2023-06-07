@@ -35,7 +35,6 @@ def main():
                 try:
                     name = contract.functions.name().call()
                     symbol = contract.functions.symbol().call()
-                    decimals = contract.functions.decimals().call()
                     total_supply = contract.functions.totalSupply().call()
                     is_erc20 = True
                 except:
@@ -46,7 +45,6 @@ def main():
                     print(address,"Ce contrat est ERC20")
                     print('Nom du contrat: ', name)
                     print('Symbole: ', symbol)
-                    print('Décimales: ', decimals)
                     print('Total Supply: ', total_supply)
                     print()
                 else:
