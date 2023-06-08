@@ -31,7 +31,6 @@ def main():
                 info_transac = web3.eth.get_transaction_receipt(tx.hash.hex())
                 address = info_transac['contractAddress']
                 contract = web3.eth.contract(address=address, abi=abi)
-                is_erc20 = False
                 try:
                     name = contract.functions.name().call()
                     symbol = contract.functions.symbol().call()
