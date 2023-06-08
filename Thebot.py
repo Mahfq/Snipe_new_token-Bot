@@ -2,9 +2,11 @@ from web3 import Web3
 import json
 
 # add your blockchain connection information
-Provider_url = 'ADDYOURINFURAURL'
-web3 = Web3(Web3.HTTPProvider(Provider_url))
+with open('secret.json', 'r') as file:
+    data = json.load(file)
 
+provider_url = data['file']
+web3 = Web3(Web3.HTTPProvider(provider_url))
 if web3.is_connected():
     print("Connecté à Ethereum")
 
