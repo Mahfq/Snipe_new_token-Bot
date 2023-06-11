@@ -25,7 +25,7 @@ def nb_block():
     if block_number != latest_block_number:
         latest_block_number = block_number
         block = web3.eth.get_block(latest_block_number, full_transactions=True)
-        print("Nouveau blocs", ":", latest_block_number)
+        print("Nouveau bloc", ":", latest_block_number)
         transactions = block['transactions']
         return transactions
 
@@ -65,12 +65,11 @@ def main():
                 info_transac = web3.eth.get_transaction_receipt(tx.hash.hex())
                 contract_address = info_transac['contractAddress']
                 if is_erc20(contract_address):
-                    print()
+                    pass
                 elif is_erc721(contract_address):
                     print(f"{contract_address} - Ce contrat est un ERC721")
 
 while __name__ == '__main__':
     main()
-
 
  
