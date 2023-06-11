@@ -1,8 +1,8 @@
 from web3 import Web3
 import json
 
-with open('secret.json', 'r') as file:
-    data = json.load(file)
+with open('secret.json', 'r') as provider:
+    data = json.load(provider)
 
 with open('ABI_ERC20.json', 'r') as abi_file:
     abi_erc20 = json.load(abi_file)
@@ -11,7 +11,7 @@ with open('ABI_ERC721.json', 'r') as abi_file:
     abi_erc721 = json.load(abi_file)
 
 def connection():
-    web3 = Web3(Web3.HTTPProvider(data['file']))
+    web3 = Web3(Web3.HTTPProvider(data['provider']))
     if web3.is_connected():
         print("Connecté à Ethereum")
     return web3
