@@ -1,8 +1,7 @@
 from web3 import Web3
+import os
+from dotenv import load_dotenv
 import json
-
-with open('secret.json', 'r') as provider:
-    data = json.load(provider)
 
 with open('ABI_ERC20.json', 'r') as abi_file:
     abi_erc20 = json.load(abi_file)
@@ -10,13 +9,12 @@ with open('ABI_ERC20.json', 'r') as abi_file:
 with open('ABI_ERC721.json', 'r') as abi_file:
     abi_erc721 = json.load(abi_file)
 
-def connection():
-    web3 = Web3(Web3.HTTPProvider(data['provider']))
-    if web3.is_connected():
-        print("Connecté à Ethereum")
-    return web3
+load_dotenv()
+data= os.getenv('provider')
+web3 = Web3(Web3.HTTPProvider(data))
+if web3.is_connected():
+    print("Connecté à Ethereum")
 
-web3 = connection()
 latest_block_number = web3.eth.block_number
 
 def nb_block():
@@ -35,12 +33,15 @@ def is_erc20(contract_address):
         name = erc20_contract.functions.name().call()
         symbol = erc20_contract.functions.symbol().call()
         totalsupply = erc20_contract.functions.totalSupply().call()
+        decimals = erc20_contract.functions.decimals().call()
+        reel_supply = totalsupply/ 10 ** decimals
         print()
         print(
             f"{contract_address} - Ce contract est ERC20\n"
             f"Nom du contract: {name}\n"
             f"Symbole: {symbol}\n"
             f"Supply: {totalsupply}\n"
+            f"Reel supply : {reel_supply}\n"
             )
         return True
     except:
