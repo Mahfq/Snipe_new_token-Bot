@@ -66,7 +66,7 @@ def main():
                 info_transac = web3.eth.get_transaction_receipt(tx.hash.hex())
                 contract_address = info_transac['contractAddress']
                 if is_erc20(contract_address):
-                    detectorhoneypot(contract_address)
+                    pass
                 elif is_erc721(contract_address):
                     print(f"{contract_address} - Ce contrat est un ERC721")
 
