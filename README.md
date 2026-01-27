@@ -21,7 +21,3 @@ N'hésitez pas à explorer les fonctionnalités du bot en examinant le code sour
 
 Veuillez noter que le Snipe_new_token-Bot est fourni à titre informatif uniquement et ne constitue en aucun cas un conseil financier. Assurez-vous de mener vos propres recherches approfondies avant de prendre des décisions d'investissement.
 
-# Contact
-
-Si vous avez des questions, des suggestions ou des commentaires, n'hésitez pas à me contacter sur Twitter @Mahfq.
-
